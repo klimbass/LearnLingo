@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --textPrimary: #121417;
+  --textSecondary: #8a8a89;
+  --accentPrimary: #9fbaae;
+  --accentSecondary: #cbded3;
+}
+body {
+  font-family: "Roboto", "sans-serif";
+  color: var(--textPrimary);
+  background-color: #ffffff;
+  padding: 20px 64px;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.16;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+p {
+  font-size: 16px;
+  line-height: 1.38;
+}
+.button-prima {
+  font-size: 18px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.highlight {
+  position: relative;
+  font-style: italic;
+  font-weight: 400;
+  z-index: 11;
+  &::after {
+    content: " ";
+    background-color: var(--accentSecondary);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 8px;
+    width: 105%;
+    height: 0.8em;
+    z-index: -1;
+  }
+}
+.custom-border {
+  position: relative;
+}
+
+.custom-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%239fbaae' stroke-width='4' stroke-dasharray='10%2c 15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 30px;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
