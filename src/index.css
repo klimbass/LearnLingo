@@ -12,8 +12,45 @@ body {
   font-family: "Roboto", "sans-serif";
   color: var(--textPrimary);
   background-color: #ffffff;
-  padding: 20px 64px;
+  padding-top: 20px;
 }
+
+/* --- styles for React`s Select  --- */
+.css-1wy0on6 {
+  position: absolute;
+  overflow: hidden !important;
+  right: 8px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.css-hlgwow {
+  padding: 0 !important;
+  width: 80px;
+  overflow: visible !important;
+}
+.css-19bb58m {
+  visibility: hidden;
+  position: absolute;
+}
+.css-1u9des2-indicatorSeparator {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+}
+.price-Icon {
+  position: relative;
+}
+.price-Icon::after {
+  content: "$";
+  font-weight: 500;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: 38%;
+}
+/* --- end styles for React`s Select  --- */
 
 h1 {
   font-size: 40px;
@@ -29,6 +66,32 @@ p {
   font-size: 18px;
   line-height: 1.55;
   font-weight: 700;
+}
+.button-popup {
+  display: block;
+  width: 100%;
+  padding: 16px 187px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: var(--accentPrimary);
+  transition: background-color 250ms linear;
+  &:hover {
+    background-color: var(--accentSecondary);
+  }
+}
+.input-popup {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #1214172c;
+  font-size: 16px;
+  line-height: 1.38;
+  color: var(--textPrimary);
+  outline: none;
+  &:focus {
+    background-color: #cbded34c;
+  }
 }
 
 .highlight {

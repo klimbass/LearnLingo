@@ -8,14 +8,15 @@ export default {
       },
       fontSize: {
         "custom-ss": ["14px", { lineHeight: "1.3", fontWeight: "400" }],
-
+        "custom-ps": ["16px", { lineHeight: "1.38", fontWeight: "400" }],
+        "custom-select": ["18px", { lineHeight: "1.01", fontWeight: "500" }],
         "custom-xl": ["28px", { lineHeight: "1.15", fontWeight: "500" }],
+        "custom-xxl": ["40px", { lineHeight: "1.2", fontWeight: "500" }],
       },
       backgroundImage: {
         "hero-pattern-red":
           "url('/src/images/68e4226188648a055ee1b42bed644f46-sticker 1.png')",
         "hero-pattern-mac": "url('/src/images/Mac.png')",
-        // 'footer-texture': "url('/img/footer-texture.png')",
       },
       backgroundPosition: {
         "center-20": "center 20%",
@@ -28,6 +29,7 @@ export default {
         greyBackground: "#F8F8F8",
         laptopGradientStart: "#314B6E",
         laptopGradientFinish: "#1F385A",
+        popupBackground: "#cbded352",
       },
       padding: {
         22: "5.5rem",

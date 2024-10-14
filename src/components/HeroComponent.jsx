@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function HeroComponent() {
   return (
     <div className="flex gap-[24px] justify-between mb-[24px]">
@@ -11,9 +13,12 @@ export default function HeroComponent() {
           Elevate your language proficiency to new heights by connecting with
           highly qualified and experienced tutors.
         </p>
-        <button className="button-prima bg-accentPrimary py-4 px-22 rounded-xl">
+        <Link
+          to="/teachers"
+          className="button-prima bg-accentPrimary hover:bg-accentSecondary transition duration-300 py-4 px-22 rounded-xl"
+        >
           Get Started
-        </button>
+        </Link>
       </div>
       <div className="flex rounded-bigRadius bg-accentPrimary w-[100%] max-w-568 bg-hero-pattern-red bg-center-20 bg-no-repeat px-103 pt-auto">
         <div className="w-[100%] bg-hero-pattern-mac mt-auto min-w-[200px] max-w-[360px] h-177 p-0 bg-bottom bg-contain bg-no-repeat"></div>
