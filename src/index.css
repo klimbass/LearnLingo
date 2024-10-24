@@ -7,12 +7,17 @@
   --textSecondary: #8a8a89;
   --accentPrimary: #9fbaae;
   --accentSecondary: #cbded3;
+  --alarmColor: #de8f8f;
+  --alarmColorLight: #de8f8f81;
 }
 body {
   font-family: "Roboto", "sans-serif";
   color: var(--textPrimary);
   background-color: #ffffff;
   padding-top: 20px;
+}
+.lock-scroll {
+  overflow: hidden;
 }
 
 /* --- styles for React`s Select  --- */
@@ -70,7 +75,7 @@ p {
 .button-popup {
   display: block;
   width: 100%;
-  padding: 16px 187px;
+  padding: 16px 0;
   border-radius: 12px;
   font-size: 18px;
   font-weight: 700;
@@ -80,7 +85,12 @@ p {
     background-color: var(--accentSecondary);
   }
 }
+.icon {
+  width: 100%;
+  height: 100%;
+}
 .input-popup {
+  width: 100%;
   padding: 16px 18px;
   border-radius: 12px;
   background-color: #fff;
@@ -94,6 +104,30 @@ p {
   }
 }
 
+.error-popup {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  color: var(--alarmColor);
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  .input-popup {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .error-popup {
+    font-size: 10px;
+  }
+  .button-popup {
+    padding: 12px 0;
+  }
+  .error-popup {
+    top: -12px;
+  }
+}
 .highlight {
   position: relative;
   font-style: italic;

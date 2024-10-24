@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import IconComponent from "../images/svg-sprite/IconComponent.jsx";
 import { useState } from "react";
 
-export default function RegisterPopup({ setIsRegisterOpen }) {
+export default function LoginPopup({ setIsLoginOpen }) {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   const {
@@ -16,7 +16,7 @@ export default function RegisterPopup({ setIsRegisterOpen }) {
 
   const handleClose = (e) => {
     if (e.target.id === "popup-bg") {
-      setIsRegisterOpen(false);
+      setIsLoginOpen(false);
     }
   };
   return (
@@ -32,33 +32,23 @@ export default function RegisterPopup({ setIsRegisterOpen }) {
         <button
           type="button"
           className="absolute top-[20px] right-[20px] cursor-pointer w-[18px] h-[18px] sm:w-[32px] sm:h-[32px]"
-          onClick={() => setIsRegisterOpen(false)}
+          onClick={() => setIsLoginOpen(false)}
         >
           <IconComponent name="x" stroke={"#121417"} />
         </button>
         <div>
           <h2 className="text-custom-xl sm:text-custom-xxl text-textPrimary mb-[10px] sm:mb-[20px]">
-            Registration
+            Log In
           </h2>
           <p className="text-custom-ps opacity-80">
-            Thank you for your interest in our platform! In order to register,
-            we need some information. Please provide us with the following
-            information
+            Welcome back! Please enter your credentials to access your account
+            and continue your search for an teacher.
           </p>
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-[18px]"
         >
-          <div className="relative block">
-            <input
-              className="input-popup"
-              {...register("name", { required: true })}
-              placeholder="Name"
-            />
-            {errors.name && <span className="error-popup">Required</span>}
-          </div>
-
           <div className="relative block">
             <input
               className="input-popup"
@@ -95,7 +85,7 @@ export default function RegisterPopup({ setIsRegisterOpen }) {
           </div>
 
           <button type="submit" className="button-popup">
-            Sign Up
+            Log In
           </button>
         </form>
       </div>

@@ -2,9 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import IconComponent from "../images/svg-sprite/IconComponent.jsx";
 import { useState } from "react";
 import RegisterPopup from "./RegisterPopup.jsx";
+import bodyScrollLockToggle from "../utils/bodyScrollLockToggle.js";
+import LoginPopup from "./LoginPopup.jsx";
 
 export default function AppBar() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  bodyScrollLockToggle(isRegisterOpen, isLoginOpen);
 
   return (
     <div className="flex items-center justify-between text-textPrimary h-12 px-[128px] mb-[20px]">
@@ -39,9 +43,13 @@ export default function AppBar() {
           </NavLink>
         </li>
       </ul>
-      <div className="flex gap-4">
-        <button type="button" className="flex flex-row items-center gap-[8px]">
-          <IconComponent name="log-in" sizeWidth="20px" />
+      <div className="flex gap-4 items-center">
+        <button
+          type="button"
+          className="flex flex-row items-center gap-[8px] "
+          onClick={() => setIsLoginOpen(true)}
+        >
+          <IconComponent name="log-in" sizeWidth="20px" style="default" />
           Log in
         </button>
         <button
@@ -55,6 +63,7 @@ export default function AppBar() {
       {isRegisterOpen && (
         <RegisterPopup setIsRegisterOpen={setIsRegisterOpen} />
       )}
+      {isLoginOpen && <LoginPopup setIsLoginOpen={setIsLoginOpen} />}
     </div>
   );
 }

@@ -30,6 +30,8 @@ export default {
         laptopGradientStart: "#314B6E",
         laptopGradientFinish: "#1F385A",
         popupBackground: "#cbded352",
+        alarmColor: "#de8f8f",
+        alarmColorLight: "#de8f8f81",
       },
       padding: {
         22: "5.5rem",
@@ -38,6 +40,7 @@ export default {
         103: "103px",
       },
       borderRadius: {
+        smallRadius: "16px",
         bigRadius: "30px",
       },
       width: {
