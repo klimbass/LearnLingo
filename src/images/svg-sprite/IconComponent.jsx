@@ -14,9 +14,9 @@ export default function IconComponent({
       className={style}
       width={sizeWidth}
       height={sizeHeight}
-      fill={restProps.fill ? restProps.fill : false}
-      stroke={restProps.stroke ? restProps.stroke : false}
-      id={restProps.id ? restProps.id : false}
+      fill={restProps.fill ? restProps.fill : null}
+      stroke={restProps.stroke ? restProps.stroke : null}
+      id={restProps.id ? restProps.id : null}
     >
       <use href={`${icon}#icon-${name}`}></use>
     </svg>

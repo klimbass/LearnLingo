@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import IconComponent from "../images/svg-sprite/IconComponent.jsx";
 import { useState } from "react";
+import { registerUser } from "../firebase/initialFirebase.js";
 
 export default function RegisterPopup({ setIsRegisterOpen }) {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
@@ -11,7 +12,17 @@ export default function RegisterPopup({ setIsRegisterOpen }) {
     // watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    const name = data.name;
+    const email = data.email;
+    const pass = data.password;
+    console.log(name, pass);
+
+    registerUser(email, pass);
+    alert("You are registered!");
+    setIsRegisterOpen(false);
+  };
   // console.log(watch("name"));
 
   const handleClose = (e) => {

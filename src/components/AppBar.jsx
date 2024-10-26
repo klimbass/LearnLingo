@@ -1,14 +1,26 @@
 import { Link, NavLink } from "react-router-dom";
 import IconComponent from "../images/svg-sprite/IconComponent.jsx";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import RegisterPopup from "./RegisterPopup.jsx";
 import bodyScrollLockToggle from "../utils/bodyScrollLockToggle.js";
 import LoginPopup from "./LoginPopup.jsx";
+import { userContext } from "./App.jsx";
 
 export default function AppBar() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   bodyScrollLockToggle(isRegisterOpen, isLoginOpen);
+  const { currentUser, setCurrentUser } = useContext(userContext);
+  const isUserLogin = currentUser.isUserLogin;
+  const handleLogout = () => {
+    setCurrentUser({
+      ...currentUser,
+      userName: "",
+      userEmail: "",
+      userID: "",
+      isUserLogin: false,
+    });
+  };
 
   return (
     <div className="flex items-center justify-between text-textPrimary h-12 px-[128px] mb-[20px]">
@@ -44,21 +56,34 @@ export default function AppBar() {
         </li>
       </ul>
       <div className="flex gap-4 items-center">
-        <button
-          type="button"
-          className="flex flex-row items-center gap-[8px] "
-          onClick={() => setIsLoginOpen(true)}
-        >
-          <IconComponent name="log-in" sizeWidth="20px" style="default" />
-          Log in
-        </button>
-        <button
-          type="button"
-          className="bg-black px-[39px] py-[14px] text-white font-bold rounded-[12px]"
-          onClick={() => setIsRegisterOpen(true)}
-        >
-          Registration
-        </button>
+        {isUserLogin ? (
+          <button
+            type="button"
+            className="flex flex-row items-center gap-[8px] "
+            onClick={handleLogout}
+          >
+            <IconComponent name="log-in" sizeWidth="20px" style="default" />
+            Log out
+          </button>
+        ) : (
+          <>
+            <button
+              type="button"
+              className="flex flex-row items-center gap-[8px] "
+              onClick={() => setIsLoginOpen(true)}
+            >
+              <IconComponent name="log-in" sizeWidth="20px" style="default" />
+              Log in
+            </button>
+            <button
+              type="button"
+              className="bg-black px-[39px] py-[14px] text-white font-bold rounded-[12px]"
+              onClick={() => setIsRegisterOpen(true)}
+            >
+              Registration
+            </button>
+          </>
+        )}
       </div>
       {isRegisterOpen && (
         <RegisterPopup setIsRegisterOpen={setIsRegisterOpen} />

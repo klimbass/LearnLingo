@@ -36,6 +36,7 @@ export const registerUser = async (email, password) => {
     );
     const user = userCredential.user;
     console.log("User registered:", user);
+    return user;
   } catch (error) {
     console.error("Error registering user:", error.message);
   }
@@ -50,6 +51,7 @@ export const loginUser = async (email, password) => {
     );
     const user = userCredential.user;
     console.log("User logged in:", user);
+    return user;
   } catch (error) {
     console.error("Error logging in:", error.message);
   }

@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import IconComponent from "../images/svg-sprite/IconComponent.jsx";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { loginUser } from "../firebase/initialFirebase.js";
+import { userContext } from "./App.jsx";
 
 export default function LoginPopup({ setIsLoginOpen }) {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const { currentUser, setCurrentUser } = useContext(userContext);
 
   const {
     register,
@@ -11,7 +14,22 @@ export default function LoginPopup({ setIsLoginOpen }) {
     // watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const email = data.email;
+    const pass = data.password;
+    const user = await loginUser(email, pass);
+    if (user) {
+      alert("Successfully Login");
+      setIsLoginOpen(false);
+      console.log(user);
+      setCurrentUser({
+        ...useContext,
+        userEmail: user.email,
+        userID: user.uid,
+        isUserLogin: true,
+      });
+    }
+  };
   // console.log(watch("name"));
 
   const handleClose = (e) => {
