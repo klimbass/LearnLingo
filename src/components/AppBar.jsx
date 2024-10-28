@@ -11,6 +11,8 @@ export default function AppBar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   bodyScrollLockToggle(isRegisterOpen, isLoginOpen);
   const { currentUser, setCurrentUser } = useContext(userContext);
+  console.log(currentUser.userName.length);
+
   const isUserLogin = currentUser.isUserLogin;
   const handleLogout = () => {
     setCurrentUser({
@@ -57,14 +59,21 @@ export default function AppBar() {
       </ul>
       <div className="flex gap-4 items-center">
         {isUserLogin ? (
-          <button
-            type="button"
-            className="flex flex-row items-center gap-[8px] "
-            onClick={handleLogout}
-          >
-            <IconComponent name="log-in" sizeWidth="20px" style="default" />
-            Log out
-          </button>
+          <>
+            <button>
+              {currentUser.userName.length > 0
+                ? currentUser.userName
+                : currentUser.userEmail.split("@")[0]}
+            </button>
+            <button
+              type="button"
+              className="flex flex-row items-center gap-[8px] "
+              onClick={handleLogout}
+            >
+              <IconComponent name="log-out" sizeWidth="20px" style="default" />
+              Log out
+            </button>
+          </>
         ) : (
           <>
             <button

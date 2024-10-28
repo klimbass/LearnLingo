@@ -23,7 +23,7 @@ export default function LoginPopup({ setIsLoginOpen }) {
       setIsLoginOpen(false);
       console.log(user);
       setCurrentUser({
-        ...useContext,
+        ...currentUser,
         userEmail: user.email,
         userID: user.uid,
         isUserLogin: true,
