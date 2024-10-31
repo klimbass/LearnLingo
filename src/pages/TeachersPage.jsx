@@ -10,6 +10,7 @@ export default function TeachersPage() {
       try {
         const response = await getTeachers();
         setTeachers(response);
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -18,9 +19,15 @@ export default function TeachersPage() {
   }, []);
 
   return (
-    <div className="bg-greyBackground px-[128px] h-[100vh] pt-[20px]">
+    <div className="bg-greyBackground px-[128px] min-h-[100vh] pt-[20px] pb-[96px] flex flex-col gap-[32px]">
       <FilterList />
       <TeachersList teachers={teachers} />
+      <button
+        type="button"
+        className="px-[48px] py-[16px] bg-accentPrimary inline-block mx-auto rounded-[12px] hover:bg-accentSecondary"
+      >
+        Load more
+      </button>
     </div>
   );
 }

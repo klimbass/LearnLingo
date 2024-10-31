@@ -9,7 +9,12 @@ export default {
       fontSize: {
         "custom-ss": ["14px", { lineHeight: "1.3", fontWeight: "400" }],
         "custom-ps": ["16px", { lineHeight: "1.38", fontWeight: "400" }],
+        "custom-p-disc": ["16px", { lineHeight: "1.5", fontWeight: "500" }],
         "custom-select": ["18px", { lineHeight: "1.01", fontWeight: "500" }],
+        "custom-teachCardName": [
+          "24px",
+          { lineHeight: "1", fontWeight: "500" },
+        ],
         "custom-xl": ["28px", { lineHeight: "1.15", fontWeight: "500" }],
         "custom-xxl": ["40px", { lineHeight: "1.2", fontWeight: "500" }],
       },
@@ -53,10 +58,13 @@ export default {
       },
       maxWidth: {
         720: "720px",
-        470: "470px",
         568: "568px",
-        177: "177px",
+        470: "470px",
         362: "362px",
+        177: "177px",
+      },
+      transitionProperty: {
+        "max-height": "max-height",
       },
     },
     plugins: [],

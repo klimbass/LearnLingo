@@ -72,6 +72,7 @@ p {
   line-height: 1.55;
   font-weight: 700;
 }
+
 .button-popup {
   display: block;
   width: 100%;
@@ -126,6 +127,11 @@ p {
   }
   .error-popup {
     top: -12px;
+  }
+  .button-prima {
+    font-size: 1em;
+    line-height: 1.4;
+    font-weight: 600;
   }
 }
 .highlight {
